@@ -1,8 +1,22 @@
+import { Card } from "./components/card";
+import { FoodData } from "./interface/FoodData";
+
 function App() {
+  const data: FoodData[] = [];
+
   return (
-    <main className="h-screen bg-zinc-900 flex flex-col gap-12 items-center justify-center">
-      <h1 className="text-5xl text-zinc-100">React + TypeScript + Vite</h1>
-      <h2 className="text-4xl text-zinc-200">Tailwind CSS</h2>
+    <main className="max-w-screen-lg mx-auto px-8 py-10">
+      <h1 className="text-4xl text-zinc-100">Cardápio</h1>
+      
+      <div className="grid-cols-3">
+        {data.map((item) => (
+          <Card 
+            title={item.title} 
+            image={item.image} 
+            price={item.price} 
+          />
+        ))}
+      </div>
     </main>
   )
 }
